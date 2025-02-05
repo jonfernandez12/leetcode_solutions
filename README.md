@@ -1,4 +1,4 @@
-# leetcode_solutions
+# Leetcode Solutions
 
 A small repository that will keep all the leetcode solutions I have been
 working on and its solutions.
