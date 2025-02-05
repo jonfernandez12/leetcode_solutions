@@ -1,5 +1,6 @@
 import pytest
-'''
+
+"""
 Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
 
 Consider the number of elements in nums which are not equal to val be k, to get accepted, you need to do the following things:
@@ -26,14 +27,15 @@ Constraints:
 1 <= nums.length <= 3 * 104
 -100 <= nums[i] <= 100
 nums is sorted in non-decreasing order.
-'''
+"""
+
 
 def remove_duplicates_from_sorted(nums: list[int]) -> int:
-    '''
+    """
     Time complexity: O(nums)
     Space complexity: O(1)
-    '''
-    i = 0 
+    """
+    i = 0
     j = 1
     while j < len(nums):
         if nums[i] == nums[j]:
@@ -45,9 +47,10 @@ def remove_duplicates_from_sorted(nums: list[int]) -> int:
     return i + 1
 
 
-@pytest.mark.parametrize(('nums, result'), [
-                        ([1, 1, 2], [1, 2]),
-                        ([[0, 0, 1, 1, 1, 2, 2, 3, 3, 4], [0, 1, 2, 3, 4]]),])
+@pytest.mark.parametrize(
+    ("nums, result"),
+    [([1, 1, 2], [1, 2]), ([[0, 0, 1, 1, 1, 2, 2, 3, 3, 4], [0, 1, 2, 3, 4]])],
+)
 def test_remove_duplicates_from_sorted(nums: list[int], result: list[int]):
     k = remove_duplicates_from_sorted(nums)
 

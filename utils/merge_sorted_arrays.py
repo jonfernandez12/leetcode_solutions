@@ -1,7 +1,6 @@
+import pytest
 
-import pytest 
-
-'''
+"""
 You are given two integer arrays nums1 and nums2, 
 sorted in non-decreasing order, and two integers m and n,
 representing the number of elements in nums1 and nums2 respectively.
@@ -41,16 +40,17 @@ nums2.length == n
 0 <= m, n <= 200
 1 <= m + n <= 200
 -109 <= nums1[i], nums2[j] <= 109
-'''
+"""
+
 
 def merge_sorted_arrays(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
-    '''
+    """
     Time complexity: O(m+n)
     Space complexity: O(1)
-    '''
+    """
 
     nums1index = m - 1
-    nums2index= n - 1 
+    nums2index = n - 1
     nums1endindex = (m + m) - 1
 
     while nums2index >= 0:
@@ -63,11 +63,14 @@ def merge_sorted_arrays(nums1: list[int], m: int, nums2: list[int], n: int) -> N
         nums1endindex -= 1
 
 
-@pytest.mark.parametrize(('nums1, nums2, result'), [
-        ([1,2,5,0,0,0], [8,9,10], [1,2,5,8,9,10]),
-        ([4,5,6,0,0,0], [1,2,3], [1,2,3,4,5,6]),
-        ([7,8,9,0,0,0], [2,5,6], [2,5,6,7,8,9]),])
+@pytest.mark.parametrize(
+    ("nums1, nums2, result"),
+    [
+        ([1, 2, 5, 0, 0, 0], [8, 9, 10], [1, 2, 5, 8, 9, 10]),
+        ([4, 5, 6, 0, 0, 0], [1, 2, 3], [1, 2, 3, 4, 5, 6]),
+        ([7, 8, 9, 0, 0, 0], [2, 5, 6], [2, 5, 6, 7, 8, 9]),
+    ],
+)
 def test_merged_sorted_arrays(nums1, nums2, result):
     merge_sorted_arrays(nums1, 3, nums2, 3)
     assert nums1 == result
-

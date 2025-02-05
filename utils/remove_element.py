@@ -1,6 +1,6 @@
 import pytest
 
-'''
+"""
 Given an integer array nums sorted in non-decreasing order, 
 remove the duplicates in-place such that each unique element appears only once. 
 The relative order of the elements should be kept the same. 
@@ -33,14 +33,15 @@ Constraints:
 -100 <= nums[i] <= 100
 nums is sorted in non-decreasing order.
 
-'''
+"""
+
 
 def remove_elements(nums: list[InterruptedError], val: int) -> int:
     k, i = 0, 0
-    j = len(nums) - 1 
+    j = len(nums) - 1
 
     while i <= j:
-        print('una vuelta')
+        print("una vuelta")
         if nums[i] != val and nums[j] != val:
             i += 1
             k += 1
@@ -51,11 +52,10 @@ def remove_elements(nums: list[InterruptedError], val: int) -> int:
             nums[j] = tmp
             k += 1
             i += 1
-            j -= 1 
+            j -= 1
 
         elif nums[i] == val and nums[j] == val:
             j -= 1
-            
 
         elif nums[i] != val and nums[j] == val:
             i += 1
@@ -64,11 +64,12 @@ def remove_elements(nums: list[InterruptedError], val: int) -> int:
 
     return k
 
-@pytest.mark.parametrize(('nums, val, result'), [
-        ([3,2,2,3], 2, [3,3]),
-        ([0,1,2,2,3,0,4,2], 2, [0,0,1,3,4]),])
-def test_remove_elements(nums, val, result):
 
+@pytest.mark.parametrize(
+    ("nums, val, result"),
+    [([3, 2, 2, 3], 2, [3, 3]), ([0, 1, 2, 2, 3, 0, 4, 2], 2, [0, 0, 1, 3, 4])],
+)
+def test_remove_elements(nums, val, result):
     k = remove_elements(nums, val)
     assert k == len(result)
 

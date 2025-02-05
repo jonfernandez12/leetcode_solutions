@@ -31,7 +31,7 @@ jobs:
         if [ -f pyproject.toml ]; then uv pip install -r pyproject.toml; fi
     - name: Test with pytest
       run: |
-        pytest
+        uv run pytest
     - name: Test ruff
       run: |
-        ruff check
+        uv run ruff check
