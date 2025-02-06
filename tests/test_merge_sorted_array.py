@@ -1,9 +1,10 @@
 import pytest
+
 from utils.merge_sorted_arrays import merge_sorted_arrays
 
 
 @pytest.mark.parametrize(
-    ("nums1, nums2, result"),
+    ('nums1, nums2, result'),
     [
         ([1, 2, 5, 0, 0, 0], [8, 9, 10], [1, 2, 5, 8, 9, 10]),
         ([4, 5, 6, 0, 0, 0], [1, 2, 3], [1, 2, 3, 4, 5, 6]),
