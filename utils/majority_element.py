@@ -39,6 +39,7 @@ def majority_element(nums: list[int]) -> int:
     count = dict(count)
     return next(i[0] for i in count.items() if i[1] > threshold)
 
+
 def majority_element_wtih_hashmap(nums: list[int]) -> int:
     hash = {}
     majority_element, majority_count = 0, 0
@@ -48,6 +49,3 @@ def majority_element_wtih_hashmap(nums: list[int]) -> int:
             majority_element = i
             majority_count = hash[i]
     return majority_element
-
-
-    
