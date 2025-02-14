@@ -1,5 +1,6 @@
 """
-Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
+Given an integer array nums, rotate the array to the right by k steps, 
+where k is non-negative.
 
 Example 1:
 
@@ -33,6 +34,6 @@ def rotate(nums: list[int], k: int):
 
     for i in range(n):
         rotated[(i + k) % n] = nums[i]
-    
+
     for i in range(n):
         nums[i] = rotated[i]
