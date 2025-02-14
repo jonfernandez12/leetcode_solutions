@@ -33,21 +33,13 @@ Constraints:
 
 
 def max_profit(prices: list[int]) -> int:
-    min_pos = 0
-    min = prices[0]
+    buy_price = prices[0]
+    profit = 0
 
-    for i in range(1, len(prices)):
-        if prices[i] < min:
-            min = prices[i]
-            min_pos = i
-
-    max = prices[min_pos]
-    if min_pos != len(prices) - 1:
-        for i in range(min_pos, len(prices)):
-            if max < prices[i]:
-                max = prices[i]
-                max_pos = i
-    else:
-        return 0
-
-    return max_pos + 1
+    for p in prices[1:]:
+        if buy_price > p:
+            buy_price = p
+        
+        profit = max(profit, p - buy_price)
+    
+    return profit
